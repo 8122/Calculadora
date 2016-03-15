@@ -1,13 +1,18 @@
-
+/*
+Esta calculadora realiza antes las operaciones de multiplicar y dividir que las
+de sumar y restar.
+*/
 package calculator;
 
-public class CalculadoraBasica1 extends javax.swing.JFrame {
+public class CalculadoraBasica3 extends javax.swing.JFrame {
 
     String valor1;
     String valor2;
-    String operacion;
+    String valor3;
+    String operacion1;
+    String operacion2;
     
-    public CalculadoraBasica1() {
+    public CalculadoraBasica3() {
         initComponents();
     }
 
@@ -314,28 +319,55 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
     private void BotonDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDividirActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
-            operacion = ":";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
+            operacion1 = ":";
+            TxtPantalla.setText(TxtPantalla.getText()+operacion1);
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
-            double resultado = calcular(operacion, valor1, valor2);
-            operacion = ":";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
-            valor1 = Double.toString(resultado);
-            valor2 = null;
-            ResPantalla.setText("");
+            operacion2 = ":";
+            if(operacion1.equals("x") || operacion1.equals(":")){
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = null;
+                operacion1 = operacion2;
+            }
+            TxtPantalla.setText(TxtPantalla.getText()+operacion2);
+        }else if(valor3 == null){
+            valor3 = ResPantalla.getText();
+            String operacion = ":";
+            if(operacion2.equals("x") || operacion2.equals(":")){
+                double resultado = calcular(operacion2, valor2, valor3);
+                valor2 = Double.toString(resultado);
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }else{//entonces operacion1 es igual a + o - y debemos hacer la operacion
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = valor3;
+                operacion1 = operacion2;
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }
+            valor3 = null;
+            operacion2 = operacion;
         }
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonDividirActionPerformed
 
     private void BotonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIgualActionPerformed
-
-        valor2 = ResPantalla.getText();
-        double resultado = calcular(operacion, valor1, valor2);
-        ResPantalla.setText(Double.toString(resultado));
+        if(valor1 == null){
+        }else if(valor2 == null){
+            valor2 = ResPantalla.getText();
+            double resultado = calcular(operacion1, valor1, valor2);
+            ResPantalla.setText(Double.toString(resultado));
+        }else if(valor3 == null){
+            valor3 = ResPantalla.getText();
+            double resultado = calcular(operacion2, valor2, valor3);
+            valor2 = Double.toString(resultado);
+            resultado = calcular(operacion1, valor1, valor2);
+            ResPantalla.setText(Double.toString(resultado));
+        }
         TxtPantalla.setText("");
         valor1 = null;
         valor2 = null;
+        valor3 = null;
     }//GEN-LAST:event_BotonIgualActionPerformed
 
     private void ResPantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResPantallaActionPerformed
@@ -344,42 +376,52 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
 
     private void Boton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton7ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"7");
+        TxtPantalla.setText(TxtPantalla.getText()+"7");
     }//GEN-LAST:event_Boton7ActionPerformed
 
     private void Boton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton8ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"8");
+        TxtPantalla.setText(TxtPantalla.getText()+"8");
     }//GEN-LAST:event_Boton8ActionPerformed
 
     private void Boton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton9ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"9");
+        TxtPantalla.setText(TxtPantalla.getText()+"9");
     }//GEN-LAST:event_Boton9ActionPerformed
 
     private void Boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton4ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"4");
+        TxtPantalla.setText(TxtPantalla.getText()+"4");
     }//GEN-LAST:event_Boton4ActionPerformed
 
     private void Boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton5ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"5");
+        TxtPantalla.setText(TxtPantalla.getText()+"5");
     }//GEN-LAST:event_Boton5ActionPerformed
 
     private void Boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton6ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"6");
+        TxtPantalla.setText(TxtPantalla.getText()+"6");
     }//GEN-LAST:event_Boton6ActionPerformed
 
     private void Boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"1");
+        TxtPantalla.setText(TxtPantalla.getText()+"1");
     }//GEN-LAST:event_Boton1ActionPerformed
 
     private void Boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"2");
+        TxtPantalla.setText(TxtPantalla.getText()+"2");
     }//GEN-LAST:event_Boton2ActionPerformed
 
     private void Boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton3ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"3");
+        TxtPantalla.setText(TxtPantalla.getText()+"3");
     }//GEN-LAST:event_Boton3ActionPerformed
 
     private void Boton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton0ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"0");
+        TxtPantalla.setText(TxtPantalla.getText()+"0");
     }//GEN-LAST:event_Boton0ActionPerformed
 
     private void BotonCambiarSignoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarSignoActionPerformed
@@ -405,53 +447,106 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
     private void BotonRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRestarActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
-            operacion = "-";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
+            operacion1 = "-";
+            TxtPantalla.setText(TxtPantalla.getText()+operacion1);
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
-            double resultado = calcular(operacion, valor1, valor2);
-            operacion = "-";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
-            valor1 = Double.toString(resultado);
-            valor2 = null;
-            ResPantalla.setText("");
+            operacion2 = "-";
+            if(operacion1.equals("x") || operacion1.equals(":")){
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = null;
+                operacion1 = operacion2;
+            }
+            TxtPantalla.setText(TxtPantalla.getText()+operacion2);
+        }else if(valor3 == null){
+            valor3 = ResPantalla.getText();
+            String operacion = "-";
+            if(operacion2.equals("x") || operacion2.equals(":")){
+                double resultado = calcular(operacion2, valor2, valor3);
+                valor2 = Double.toString(resultado);
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }else{//entonces operacion1 es igual a + o - y debemos hacer la operacion
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = valor3;
+                operacion1 = operacion2;
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }
+            valor3 = null;
+            operacion2 = operacion;
         }
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonRestarActionPerformed
 
     private void BotonSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSumarActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
-            operacion = "+";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-           
+            operacion1 = "+";
+            TxtPantalla.setText(TxtPantalla.getText()+operacion1);
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
-            double resultado = calcular(operacion, valor1, valor2);
-            operacion = "+";           
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
-            valor1 = Double.toString(resultado);
-            valor2 = null;
-       
+            operacion2 = "+";
+            if(operacion1.equals("x") || operacion1.equals(":")){
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = null;
+                operacion1 = operacion2;
+            }
+            TxtPantalla.setText(TxtPantalla.getText()+operacion2);
+        }else if(valor3 == null){
+            valor3 = ResPantalla.getText();
+            String operacion = "+";
+            if(operacion2.equals("x") || operacion2.equals(":")){
+                double resultado = calcular(operacion2, valor2, valor3);
+                valor2 = Double.toString(resultado);
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }else{//entonces operacion1 es igual a + o - y debemos hacer la operacion
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = valor3;
+                operacion1 = operacion2;
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }
+            valor3 = null;
+            operacion2 = operacion;
         }
-         ResPantalla.setText("");
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonSumarActionPerformed
 
     private void BotonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMultiplicarActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
-            operacion = "x";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
+            operacion1 = "x";
+            TxtPantalla.setText(TxtPantalla.getText()+operacion1);
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
-            double resultado = calcular(operacion, valor1, valor2);
-            operacion = "x";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
-            valor1 = Double.toString(resultado);
-            valor2 = null;
-            ResPantalla.setText("");
+            operacion2 = "x";
+            if(operacion1.equals("x") || operacion1.equals(":")){
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = null;
+                operacion1 = operacion2;
+            }
+            TxtPantalla.setText(TxtPantalla.getText()+operacion2);
+        }else if(valor3 == null){
+            valor3 = ResPantalla.getText();
+            String operacion = "x";
+            if(operacion2.equals("x") || operacion2.equals(":")){
+                double resultado = calcular(operacion2, valor2, valor3);
+                valor2 = Double.toString(resultado);
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }else{//entonces operacion1 es igual a + o - y debemos hacer la operacion
+                double resultado = calcular(operacion1, valor1, valor2);
+                valor1 = Double.toString(resultado);
+                valor2 = valor3;
+                operacion1 = operacion2;
+                TxtPantalla.setText(TxtPantalla.getText()+operacion);
+            }
+            valor3 = null;
+            operacion2 = operacion;
         }
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonMultiplicarActionPerformed
 
     private void BotonBorrarDigitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarDigitoActionPerformed
@@ -507,7 +602,7 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
             }
         return resultado;
     }
-    
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -522,20 +617,23 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CalculadoraBasica1().setVisible(true);
+                new CalculadoraBasica3().setVisible(true);
             }
         });
     }

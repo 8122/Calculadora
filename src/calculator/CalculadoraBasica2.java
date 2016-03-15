@@ -1,13 +1,13 @@
 
 package calculator;
 
-public class CalculadoraBasica1 extends javax.swing.JFrame {
+public class CalculadoraBasica2 extends javax.swing.JFrame {
 
     String valor1;
     String valor2;
     String operacion;
     
-    public CalculadoraBasica1() {
+    public CalculadoraBasica2() {
         initComponents();
     }
 
@@ -315,17 +315,15 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
         if(valor1 == null){
             valor1 = ResPantalla.getText();
             operacion = ":";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
             double resultado = calcular(operacion, valor1, valor2);
             operacion = ":";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
             valor1 = Double.toString(resultado);
             valor2 = null;
-            ResPantalla.setText("");
         }
+        TxtPantalla.setText(TxtPantalla.getText()+operacion);
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonDividirActionPerformed
 
     private void BotonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIgualActionPerformed
@@ -344,42 +342,52 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
 
     private void Boton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton7ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"7");
+        TxtPantalla.setText(TxtPantalla.getText()+"7");
     }//GEN-LAST:event_Boton7ActionPerformed
 
     private void Boton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton8ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"8");
+        TxtPantalla.setText(TxtPantalla.getText()+"8");
     }//GEN-LAST:event_Boton8ActionPerformed
 
     private void Boton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton9ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"9");
+        TxtPantalla.setText(TxtPantalla.getText()+"9");
     }//GEN-LAST:event_Boton9ActionPerformed
 
     private void Boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton4ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"4");
+        TxtPantalla.setText(TxtPantalla.getText()+"4");
     }//GEN-LAST:event_Boton4ActionPerformed
 
     private void Boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton5ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"5");
+        TxtPantalla.setText(TxtPantalla.getText()+"5");
     }//GEN-LAST:event_Boton5ActionPerformed
 
     private void Boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton6ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"6");
+        TxtPantalla.setText(TxtPantalla.getText()+"6");
     }//GEN-LAST:event_Boton6ActionPerformed
 
     private void Boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"1");
+        TxtPantalla.setText(TxtPantalla.getText()+"1");
     }//GEN-LAST:event_Boton1ActionPerformed
 
     private void Boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"2");
+        TxtPantalla.setText(TxtPantalla.getText()+"2");
     }//GEN-LAST:event_Boton2ActionPerformed
 
     private void Boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton3ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"3");
+        TxtPantalla.setText(TxtPantalla.getText()+"3");
     }//GEN-LAST:event_Boton3ActionPerformed
 
     private void Boton0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton0ActionPerformed
         ResPantalla.setText(ResPantalla.getText()+"0");
+        TxtPantalla.setText(TxtPantalla.getText()+"0");
     }//GEN-LAST:event_Boton0ActionPerformed
 
     private void BotonCambiarSignoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCambiarSignoActionPerformed
@@ -406,52 +414,45 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
         if(valor1 == null){
             valor1 = ResPantalla.getText();
             operacion = "-";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
             double resultado = calcular(operacion, valor1, valor2);
             operacion = "-";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
             valor1 = Double.toString(resultado);
             valor2 = null;
-            ResPantalla.setText("");
         }
+        TxtPantalla.setText(TxtPantalla.getText()+operacion);
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonRestarActionPerformed
 
     private void BotonSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSumarActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
             operacion = "+";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-           
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
             double resultado = calcular(operacion, valor1, valor2);
-            operacion = "+";           
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
+            operacion = "+";
             valor1 = Double.toString(resultado);
             valor2 = null;
-       
         }
-         ResPantalla.setText("");
+        TxtPantalla.setText(TxtPantalla.getText()+operacion);
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonSumarActionPerformed
 
     private void BotonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMultiplicarActionPerformed
         if(valor1 == null){
             valor1 = ResPantalla.getText();
             operacion = "x";
-            TxtPantalla.setText(ResPantalla.getText()+operacion);
-            ResPantalla.setText("");
         }else if(valor2 == null){
             valor2 = ResPantalla.getText();
             double resultado = calcular(operacion, valor1, valor2);
             operacion = "x";
-            TxtPantalla.setText(Double.toString(resultado)+operacion);
             valor1 = Double.toString(resultado);
             valor2 = null;
-            ResPantalla.setText("");
         }
+        TxtPantalla.setText(TxtPantalla.getText()+operacion);
+        ResPantalla.setText("");
     }//GEN-LAST:event_BotonMultiplicarActionPerformed
 
     private void BotonBorrarDigitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarDigitoActionPerformed
@@ -462,6 +463,9 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonBorrarDigitoActionPerformed
 
     private void BotonBorrarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarNumeroActionPerformed
+        int i = ResPantalla.getText().length();
+        int j = TxtPantalla.getText().length();
+        TxtPantalla.setText(TxtPantalla.getText().substring(0, (j-i)));
         ResPantalla.setText("");
     }//GEN-LAST:event_BotonBorrarNumeroActionPerformed
 
@@ -522,20 +526,21 @@ public class CalculadoraBasica1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CalculadoraBasica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CalculadoraBasica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CalculadoraBasica1().setVisible(true);
+                new CalculadoraBasica2().setVisible(true);
             }
         });
     }
